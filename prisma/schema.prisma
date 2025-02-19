@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Restaurant {
+  id             String         @id @default(uuid())
+  name           String
+  slug           String
+  description    String
+  avatarImageUrl String
+  coverImageUrl  String
+  menuCategories MenuCategory[]
+  products       Product[]
+  orders         Order[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model MenuCategory {
+  id           String     @id @default(uuid())
+  name         String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  restaurantId String
+  products     Product[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Product {
+  id             String         @id @default(uuid())
+  name           String
+  description    String
+  price          Float
+  imageUrl       String
+  ingredients    String[]
+  orderProducts  OrderProduct[]
+  restaurant     Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  restaurantId   String
+  menuCategory   MenuCategory   @relation(fields: [menuCategoryId], references: [id], onDelete: Cascade)
+  menuCategoryId String
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model Order {
+  id                Int               @id @default(autoincrement())
+  total             Float
+  status            OrderStatus
+  consumptionMethod ConsumptionMethod
+  restaurant        Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  restaurantId      String
+  orderProducts     OrderProduct[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
+model OrderProduct {
+  id        String   @id @default(uuid())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId   Int
+  quantity  Int
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PREPARATION
+  FINISHED
+}
+
+enum ConsumptionMethod {
+  TAKEAWAY
+  DINE_IN
+}
