@@ -15,7 +15,7 @@ const main = async () => {
         avatarImageUrl:
           "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQvcNP9rHlEJu1vCY5kLqzjf29HKaeN78Z6pRy",
         coverImageUrl:
-          "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQU3JZGQeTmvPeJLoyOjzNsMqFdxUI423nBl6b",
+          "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQac8bHYlkBUjlHSKiuseLm2hIFzVY0OtxEPnw",
       },
     });
     const combosCategory = await tx.menuCategory.create({
