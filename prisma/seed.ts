@@ -10,12 +10,11 @@ const main = async () => {
     const restaurant = await tx.restaurant.create({
       data: {
         name: "Matheus Donalds",
-        slug: "math-donalds",
+        slug: "fsw-donalds",
         description: "O melhor fast food do mundo",
         avatarImageUrl:
           "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQvcNP9rHlEJu1vCY5kLqzjf29HKaeN78Z6pRy",
-        coverImageUrl:
-          "https://i.imgur.com/g090QaL.jpeg",
+        coverImageUrl: "https://i.imgur.com/g090QaL.jpeg",
       },
     });
     const combosCategory = await tx.menuCategory.create({
