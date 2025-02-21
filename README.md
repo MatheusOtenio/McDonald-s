@@ -32,17 +32,15 @@ Resumo do pedido, onde o cliente pode revisar e concluir a compra.
 
 ## Instalação e Uso
 
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+
    ```
-2. Instale as dependências:
+1. Instale as dependências:
    ```sh
    npm install
    ```
-3. Configure o banco de dados no arquivo `.env`.
-4. Execute o projeto:
+2. Configure o banco de dados no arquivo `.env`.
+3. Execute o projeto:
    ```sh
    npm run dev
    ```
-5. Acesse no navegador: `http://localhost:3000`
+4. Acesse no navegador: `http://localhost:3000`
