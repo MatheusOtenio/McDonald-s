@@ -33,14 +33,18 @@ Resumo do pedido, onde o cliente pode revisar e concluir a compra.
 ## Instalação e Uso
 
 
-   ```
-1. Instale as dependências:
+## Como rodar o projeto  
+
+1. Instale as dependências:  
    ```sh
    npm install
-   ```
-2. Configure o banco de dados no arquivo `.env`.
-3. Execute o projeto:
+   ```  
+
+2. Configure o banco de dados no arquivo `.env`.  
+
+3. Inicie o servidor de desenvolvimento:  
    ```sh
    npm run dev
-   ```
-4. Acesse no navegador: `http://localhost:3000`
+   ```  
+
+4. Acesse o projeto no navegador: [http://localhost:3000](http://localhost:3000)
